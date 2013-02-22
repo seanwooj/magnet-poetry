@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'sqlite3'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Frontend Gems
@@ -10,6 +9,7 @@ gem 'zurb-foundation'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
+  gem 'sqlite3'
 end
 
 group :test do
