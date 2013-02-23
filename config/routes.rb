@@ -1,10 +1,6 @@
 MagnetPoetry::Application.routes.draw do
 
-  get "users/new"
-
-  get "users/show"
-
-  get "users/index"
+  resources :users
 
   match '/', to: 'static_pages#home'
   match 'signup', to: 'users#new'

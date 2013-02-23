@@ -17,6 +17,19 @@
 <body>
 	<%= render "layouts/nav" %>
   <%= yield %>
+
+  <% if Rails.env.development? %>
+  <div class="debug" style="padding: 10px; background: red; color: white;">
+    <div class="row">
+      <div class="twelve columns">
+        DEBUG INFO
+        <%= debug(params) %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
 	<%= render "layouts/footer" %>
 </body>
 </html>

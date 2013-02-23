@@ -1,2 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% provide(:title, @user.username) %>
+<!-- this is going to be the user's dashboard, more or less. I'm not sure. -->
+<div class="user-page">
+  <div class="row">
+    <div class="twelve columns">
+      <h1><%= @user.username %></h1>
+      <%= @user.first_name %>
+      <%= @user.last_name %>
+      <%= @user.email %>
+    </div>
+  </div>
+</div>
