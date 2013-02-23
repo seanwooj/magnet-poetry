@@ -1,0 +1,57 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin radius {
+  $radius: 3px;
+  $border-color: #ccc;
+
+  // border: 1px $border-color solid;
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin box-shadow {
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+}
+
+.masthead {
+  height: 600px;
+  background: image-url('masthead.jpg');
+  .masthead-content {
+    padding-top: 20px;
+    background: rgba(255,255,255,0.9);
+    margin-top: 50px;
+    text-align: center;
+    h1 {
+      border-bottom: #ccc 1px solid;
+      padding-bottom: 20px;
+    }
+    p {
+      font-family: 'Lato';
+      font-size: 1.3em;
+    }
+    .join-button {
+      height: 60px;
+      width: 200px;
+      font-size: 2em;
+      margin: 0 auto;
+    }
+    .masthead-reviews {
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      .review {
+        p {
+          font-size: 1em;
+        }
+      }
+    }
+    @include radius;
+    @include box-shadow;
+  }
+}
+
+.home-content {
+  margin-top: 20px;
+}

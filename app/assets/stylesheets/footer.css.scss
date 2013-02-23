@@ -1,0 +1,28 @@
+
+footer {
+  border-top: 1px solid #999;
+
+  p strong {
+    font-family: 'Lato';
+  }
+
+  .top-footer {
+    padding: 10px 0;
+
+    ul {
+      list-style: none;
+    }
+  }
+
+  .sub-footer {
+    padding: 10px 0;
+    border-top: 1px solid #999;
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .muted {
+    color: #999;
+  }
+}
