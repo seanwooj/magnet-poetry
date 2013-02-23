@@ -10,6 +10,8 @@ gem 'zurb-foundation'
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'sqlite3'
+  gem 'rb-fsevent'
+  gem 'guard-rspec'
 end
 
 group :test do
