@@ -1,0 +1,48 @@
+<% provide(:title, "Sign up!") %>
+
+<div class="signin">
+
+  <div class="masthead">
+    <div class="row main-container">
+
+      <div class="twelve columns masthead-content">
+        <h1>Sign in to play Magnets!</h1>
+        <% if devise_error_messages! != "" %>
+          <div class="alert-box">
+            <%= devise_error_messages! %>
+          </div>
+        <% end %>
+        <div class="row">
+          <div class="eight columns signin-form">
+            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+              <%= f.label :email %>
+              <%= f.text_field :email, autofocus: true %>
+
+              <%= f.label :password %>
+              <%= f.password_field :password %>
+
+              <% if devise_mapping.rememberable? -%>
+                <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+              <% end -%>
+
+              <div class="signin-button">
+                <%= f.submit "Let's play!", class:"button large radius join-button" %>
+              </div>
+
+              <%= render "devise/shared/links" %>
+
+            <% end %>
+          </div>
+
+          <div class="signup-right four columns">
+            <h2>Yay! We're so excited!</h2>
+            <p>Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in Sign in </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

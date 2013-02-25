@@ -16,6 +16,14 @@
 </head>
 <body>
 	<%= render "layouts/nav" %>
+  <% if notice || alert %>
+    <div class="alert-box no-margin">
+      <%= notice %>
+      <%= alert %>
+      <a href="" class="close">&times;</a>
+    </div>
+  <% end %>
+
   <%= yield %>
 
   <% if Rails.env.development? %>

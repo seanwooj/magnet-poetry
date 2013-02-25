@@ -4,8 +4,8 @@
 
 //  SIGNUP FORM
 
-.signup {
-  .signup-form {
+.signup, .signin {
+  .signup-form, .signin-form {
     text-align: left;
     input {
       height: 40px;
@@ -16,7 +16,7 @@
       border: none;
       border-bottom: 3px solid #aaa;
     }
-    .signup-button {
+    .signup-button, .signin-button {
       text-align: center;
     }
   }
