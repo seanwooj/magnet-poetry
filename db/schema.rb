@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226012220) do
+ActiveRecord::Schema.define(:version => 20130226014602) do
 
   create_table "categories", :force => true do |t|
     t.string   "category"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(:version => 20130226012220) do
   create_table "poem_words", :force => true do |t|
     t.integer  "poem_id"
     t.integer  "word_id"
+    t.string   "top"
+    t.string   "left"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -34,9 +36,11 @@ ActiveRecord::Schema.define(:version => 20130226012220) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "single_poems", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "rounds", :force => true do |t|
+    t.integer  "game_id"
+    t.integer  "round_number"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -64,8 +68,9 @@ ActiveRecord::Schema.define(:version => 20130226012220) do
   create_table "words", :force => true do |t|
     t.string   "word"
     t.integer  "category_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "NSFW",        :default => false
   end
 
 end
