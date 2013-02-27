@@ -8,7 +8,7 @@ class Word < ActiveRecord::Base
     words = []
     length = Word.where(category_id: category).length
     number.times do
-      words << Word.where(category_id: number)[rand(length)]
+      words << Word.where(category_id: category)[rand(length)]
     end
     words
   end
@@ -16,7 +16,7 @@ class Word < ActiveRecord::Base
   def self.seed_words
     seed_words = []
     (1..7).each do |num|
-      seed_words << get_random(num, 1);
+      seed_words << get_random(num, 3);
     end
     seed_words.flatten!
     seed_words

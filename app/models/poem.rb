@@ -1,7 +1,9 @@
 class Poem < ActiveRecord::Base
   attr_accessible :name, :round_id, :user_id
 
-  has_many :poem_words
+  has_many :poem_words, dependent: :destroy
+  accepts_nested_attributes_for :poem_words
+
   has_many :words, through: :poem_words
 
   belongs_to :round

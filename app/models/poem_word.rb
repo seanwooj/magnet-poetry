@@ -3,4 +3,13 @@ class PoemWord < ActiveRecord::Base
 
   belongs_to :poem
   belongs_to :word
+
+  def as_json(options = {})
+    {
+      word: self.word.word,
+      left: self.left,
+      top: self.top,
+      id: self.id
+    }
+  end
 end
