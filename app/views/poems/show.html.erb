@@ -14,14 +14,7 @@
 <script>
   var poemData = <%= @poem_words.to_json.html_safe %>;
 
-  var save = function (poemWordID, top, left, callback) {
-    // $.post("/poems.json", {
-    //   poem: {
-    //     user_id: <%= current_user.id %>
-    //   }
-    // }, function (response) {
-    //   console.log(response);
-    // });
+  var saveMagnets = function (poemWordID, top, left, callback) {
 
     $.ajax({
       type: "POST",
@@ -87,7 +80,7 @@
           var top = parseInt($dragging.css("top")) / $dragging.parent().height() * 100;
           var left = parseInt($dragging.css("left")) / $dragging.parent().width() * 100;
           console.log(top, left);
-          save(poemWordID, top, left)
+          saveMagnets(poemWordID, top, left)
           $dragging = null;
       });
 
@@ -120,8 +113,6 @@
       });
 
       rotateAllMagnets();
-
-      save();
 
   });
 </script>

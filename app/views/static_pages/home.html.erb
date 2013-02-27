@@ -4,7 +4,11 @@
     <div class="twelve columns centered masthead-content">
       <h1>Magnets!</h1>
       <p>Here's some hella sweet fake text talking about how cool this app is. It doesn't even exist yet, but I can assure you, it will be fully radical. So let me tell you some more about this app. It will be epic. it will be amazing. it will be mind blowing. You will love it in its entirety.</p>
-      <%= link_to "Join!", signup_path, class: "button large radius join-button" %>
+      <% if !user_signed_in? %>
+        <%= link_to "Join!", signup_path, class: "button large radius join-button" %>
+      <% else %>
+        <%= link_to "Play!", poems_path, method: :post, class: "button large radius join-button" %>
+      <% end %>
       <div class="masthead-reviews row">
         <div class="review four columns">
           <p>s pattern splits the view (also called the presentation) into “dumb” templates that are primarily responsible for inserting pre-built data in between HTML tags. The model che business logic and knows how</p>
