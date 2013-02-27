@@ -16,74 +16,7 @@
   var poemData = <%= @poem_words.to_json.html_safe %>;
 
   $(function(){
-    // DRAGGING FUNCTIONALITY
-    var $dragging = null
-
-    $('.magnets').on("mousemove", function(e) {
-      if ($dragging) {
-        var left = ((e.pageX - magnetsOffset.left) / magnetsWidth) * 100;
-        var top = ((e.pageY - magnetsOffset.top) / magnetsHeight) * 100;
-        console.log(magnetsHeight);
-        $dragging.css({
-            top: top + "%",
-            left: left + "%"
-        });
-      }
-    });
-
-    $('.magnets').on("mousedown", "div", function (e) {
-        $dragging = $(e.target);
-    });
-
-    $(document.body).on("mouseup", function (e) {
-        var poemWordID = $dragging.data("poem-word-id");
-        var top = parseInt($dragging.css("top")) / $dragging.parent().height() * 100;
-        var left = parseInt($dragging.css("left")) / $dragging.parent().width() * 100;
-        console.log(top, left);
-        saveMagnets(poemWordID, top, left)
-        $dragging = null;
-    });
-
-    rotateAllMagnets();
+    magnet = new Magnet.Controller(poemData);
+    magnet.start();
   });
 </script>
-
-<style>
-  .magnets.columns {
-
-    margin: 0 auto 40px auto;
-
-    position: relative;
-
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    cursor: default;
-
-    box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
-  }
-
-  .magnet {
-    /*border: 1px solid black;*/
-    position: absolute;
-    padding: 2px 5px;
-    display: block;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    background: white;
-    border: 1px solid #555;
-    font-family: 'Helvetica', 'Helvetica Neue';
-
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    cursor: default;
-  }
-</style>
