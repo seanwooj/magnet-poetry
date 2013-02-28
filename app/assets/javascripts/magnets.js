@@ -115,6 +115,13 @@ var Magnet = ( function () {
       // Instantiating new magnets from an array of JSON stuff
       that.dataToMagnet(magnetData)
       that.rotateAllMagnets();
+
+      // barely know why this works. should learn more abt it
+      $('.add-more').bind('ajax:success', function(event, data) {
+        magnetData = $.parseJSON(data);
+        magnet.dataToMagnet(magnetData);
+        magnet.rotateAllMagnets();
+      });
     }
 
   }
