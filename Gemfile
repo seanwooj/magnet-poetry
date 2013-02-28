@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Frontend Gems
 gem 'compass-rails'

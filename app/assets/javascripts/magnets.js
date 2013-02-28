@@ -33,7 +33,7 @@ var Magnet = ( function () {
       pageHeight = $(window).height();
 
       // dynamically setting the height to 80% of the window
-      $('.magnets').height(pageHeight * 0.8)
+      $('.magnets').height(pageHeight * 0.6)
 
       magnetsHeight = $(".magnets").height();
       magnetsOffset = $('.magnets').offset();
