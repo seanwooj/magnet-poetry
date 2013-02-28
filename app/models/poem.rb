@@ -10,8 +10,8 @@ class Poem < ActiveRecord::Base
   belongs_to :game
   belongs_to :user
 
-  def self.instantiate_poem(user_id)
-    poem = Poem.create(user_id: user_id)
+  def self.instantiate_poem(user_id, round_id = nil)
+    poem = Poem.create(user_id: user_id, round_id: round_id)
     Poem.word_spawn(poem.id)
     poem
   end
@@ -25,6 +25,12 @@ class Poem < ActiveRecord::Base
                                 word_id: word.id,
                                 top: "#{randTop}%", left: "#{randLeft}%")
       poem_word.save
+    end
+  end
+
+  def self.create_player_poems(players, round_id)
+    players.each do |player|
+      poem = Poem.instantiate_poem(player.id, round_id)
     end
   end
 

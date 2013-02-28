@@ -5,7 +5,9 @@ class Game < ActiveRecord::Base
   # has_many :players # don't know about this.
   has_many :poems, through: :rounds
 
-  def self.instantiate_game(creator, players, name)
+  def self.initialize(creator, players, name)
+
+    @players = players
 
     game = Game.new(
       name: name,
@@ -19,9 +21,28 @@ class Game < ActiveRecord::Base
       # BE SURE TO ADD PROMPT
     )
 
-    players.each do |player|
-      poem = Poem.instantiate_poem(player.id)
-    end
+    Poem.create_player_poems(@players, round.id)
 
   end
+
+  #this might actually be a helper
+  def current_round
+    self.rounds.last.round_number
+  end
+
+  def game_over?
+
+  end
+
+  def new_round
+    round = Round.create(
+      game_id: self.id,
+      round_number: current_round + 1
+    )
+
+    Poem.create_player_poems(@players, round.id)
+
+  end
+
+
 end
