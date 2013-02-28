@@ -4,17 +4,11 @@ class PoemsController < ApplicationController
   def create
     @poem = Poem.new
     @poem.user_id = current_user.id
-    @words = Word.seed_words
     @poem.save
-    @words.each do |word|
-      poem_word = PoemWord.new(poem_id: @poem.id, word_id: word.id, top: "0%", left: "0%")
-      poem_word.save
-    end
+
+    word_spawn(@poem.id)
+
     redirect_to @poem
-  end
-
-  def edit
-
   end
 
   def index
@@ -30,5 +24,37 @@ class PoemsController < ApplicationController
       format.html
     end
   end
+
+  def spawn_new_words
+    word_spawn(params[:id])
+
+    respond_to do |format|
+      format.html { redirect_to @poem }
+      format.js { render nothing: true }
+    end
+  end
+
+  def refresh_words
+    @poem = Poem.find(params[:id])
+    @poem_words = @poem.poem_words.includes(:word).all
+
+    respond_to do |format|
+      format.json { render json: @poem_words }
+    end
+  end
+
+  private
+
+    def word_spawn(poem_id)
+      @words = Word.seed_words
+      @words.each do |word|
+        randTop = Random.rand(100)
+        randLeft = Random.rand(100)
+        poem_word = PoemWord.new( poem_id: poem_id,
+                                  word_id: word.id,
+                                  top: "#{randTop}%", left: "#{randLeft}%")
+        poem_word.save
+      end
+    end
 
 end

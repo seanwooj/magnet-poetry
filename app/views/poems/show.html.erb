@@ -8,15 +8,21 @@
         <div class="magnets eleven columns centered">
         </div>
       </div>
+      <%= button_to "These words are inadequate! I need more!", spawn_new_words_poem_path, method: :post, remote: true, form_class: "add-more" %>
     </div>
   </div>
 </div>
 
 <script>
-  var poemData = <%= @poem_words.to_json.html_safe %>;
+  var magnetData = <%= @poem_words.to_json.html_safe %>;
 
   $(function(){
-    magnet = new Magnet.Controller(poemData);
+    magnet = new Magnet.Controller(magnetData);
     magnet.start();
+
+    $('.add-more').bind('ajax:success', function() {
+      console.log("success");
+    });
+
   });
 </script>

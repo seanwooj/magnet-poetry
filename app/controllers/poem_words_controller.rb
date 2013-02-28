@@ -8,4 +8,5 @@ class PoemWordsController < ApplicationController
       format.json { render json: @poem_word }
     end
   end
+
 end

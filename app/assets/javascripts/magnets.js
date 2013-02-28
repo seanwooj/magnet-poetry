@@ -1,6 +1,7 @@
+
 var Magnet = ( function () {
 
-  var Controller = function (poemData) {
+  var Controller = function (magnetData) {
     var that = this;
     var $dragging = null;
     var magnetsWidth, magnetsHeight, magnetsOffset, pageWidth, pageHeight;
@@ -15,6 +16,13 @@ var Magnet = ( function () {
           console.log(msg);
         }
       })
+    }
+
+    this.refreshData = function(poemID) {
+      $.get( poemID + '/refresh_words', function(newData) {
+        poemData = newData;
+        _.each(newData, function(newDatum) { console.log(newDatum)});
+      });
     }
 
     // GETS AND SETS VARIABLES BASED ON WINDOW SIZE
@@ -46,7 +54,6 @@ var Magnet = ( function () {
       });
     }
 
-
     // Magnet Movement
 
     this.magnetMove = function(target, event) {
@@ -57,8 +64,6 @@ var Magnet = ( function () {
             top: top + "%",
             left: left + "%"
         });
-        console.log(magnetsOffset.left);
-        console.log(magnetsOffset.top);
       }
     }
 
@@ -70,13 +75,13 @@ var Magnet = ( function () {
         that.updateMagnets(poemWordID, top, left)
         $dragging = null;
       }
-      console.log($dragging)
     }
 
     // Magnet DOM creation
 
-    this.dataToMagnet = function(data) {
-      _.each(data, function(wordObject){
+    this.dataToMagnet = function(magnetData) {
+      $('.magnets').empty();
+      _.each(magnetData, function(wordObject){
         $('.magnets').append(
           $('<div/>')
             .addClass('magnet')
@@ -87,7 +92,7 @@ var Magnet = ( function () {
       });
     }
 
-    this.start = function(data) {
+    this.start = function() {
       that.getSetVariableWidth();
 
       // CHANGING VARIABLES BASED ON WINDOW RESIZE
@@ -108,7 +113,7 @@ var Magnet = ( function () {
       });
 
       // Instantiating new magnets from an array of JSON stuff
-      that.dataToMagnet(poemData)
+      that.dataToMagnet(magnetData)
       that.rotateAllMagnets();
     }
 

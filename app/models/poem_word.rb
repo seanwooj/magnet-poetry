@@ -12,4 +12,5 @@ class PoemWord < ActiveRecord::Base
       id: self.id
     }
   end
+
 end
