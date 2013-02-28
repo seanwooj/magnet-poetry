@@ -20,14 +20,12 @@
     magnet = new Magnet.Controller(magnetData);
     magnet.start();
 
-    $('.add-more').bind('ajax:success', function() {
+    $('.add-more').bind('ajax:success', function(event, data) {
       console.log("success");
-
-      $.get('<%= @poem.id %>/refresh_words', function(data) {
-        magnetData = data;
-        magnet.dataToMagnet(magnetData);
-        magnet.rotateAllMagnets();
-      });
+      console.log(data);
+      magnetData = $.parseJSON(data);
+      magnet.dataToMagnet(magnetData);
+      magnet.rotateAllMagnets();
 
       console.log(magnetData);
 

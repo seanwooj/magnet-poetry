@@ -27,10 +27,12 @@ class PoemsController < ApplicationController
 
   def spawn_new_words
     word_spawn(params[:id])
+    @poem = Poem.find(params[:id])
+    @poem_words = @poem.poem_words.includes(:word).all
 
     respond_to do |format|
       format.html { redirect_to @poem }
-      format.js { render nothing: true }
+      format.js { render json: @poem_words }
     end
   end
 
