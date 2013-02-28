@@ -22,6 +22,16 @@
 
     $('.add-more').bind('ajax:success', function() {
       console.log("success");
+
+      $.get('<%= @poem.id %>/refresh_words', function(data) {
+        magnetData = data;
+        magnet.dataToMagnet(magnetData);
+        magnet.rotateAllMagnets();
+      });
+
+      console.log(magnetData);
+
+
     });
 
   });
