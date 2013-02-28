@@ -8,7 +8,6 @@ MagnetPoetry::Application.routes.draw do
   resources :poems do
     member do
       post 'spawn_new_words'
-      get 'refresh_words'
     end
   end
 
