@@ -6,7 +6,7 @@ class GamesController < ApplicationController
   end
 
   def create
-
+    
   end
 
   def show
@@ -19,6 +19,7 @@ class GamesController < ApplicationController
               rounds.round_number = ?",
               params[:id], current_user.id, @game.current_round)
       .last
+    @poem_words = @player_poem.poem_words
   end
 
   def index

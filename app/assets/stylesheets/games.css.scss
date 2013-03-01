@@ -1,3 +1,31 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.game-info {
+  float: left;
+  text-align: left;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  padding: 5px 20px 20px 20px;
+  border: 1px solid #ccc;
+  background: rgba(255,255,255,0.6);
+}
+.player-points {
+  margin-left: 15px;
+  margin-bottom: 15px;
+  float:left;
+  border: 1px solid #ccc;
+  padding: 15px 10px 10px 10px;
+  background: rgba(255,255,255,0.6);
+  table {
+    margin: 0px;
+    caption {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 6px;
+      line-height: 1.3;
+      color: #6f6f6f;
+      font-weight: 300;
+      font-family: "Lato", sans-serif;
+    }
+  }
+}

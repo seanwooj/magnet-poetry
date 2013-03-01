@@ -106,3 +106,11 @@ interjection = Word.create([
   { word: "hey", category_id: 8 },
   { word: "ouch", category_id: 8 }
 ])
+
+prompts = Prompt.create([
+  { body: "Hipsters" },
+  { body: "The Transportation Security Administration" },
+  { body: "Casual Racism", nsfw: true },
+  { body: "Facebook Relationships" },
+  { body: "Drinking on Weekdays", nsfw: true }
+])

@@ -11,7 +11,7 @@ MagnetPoetry::Application.routes.draw do
       post 'submit'
     end
   end
-  resources :games, only: [:show]
+  resources :games, only: [:show, :create, :new]
 
 
   root to: 'static_pages#home'

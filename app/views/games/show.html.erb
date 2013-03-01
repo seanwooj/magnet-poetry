@@ -1,27 +1,38 @@
-Game: <%= @game %>
-<br>
-Game Round: <%= @game.current_round %>
-<br>
-Game Creator: <%= @game.user.username %>
-<br>
-Game Users:
-<% @game.players.each do |player| %>
-  <%= player.user.username %>
-<% end %>
-<br>
+<div class="masthead">
+  <div class="row main-container">
+    <div class="twelve columns centered masthead-content">
 
-<% if !@player_poem.game_played %>
-<%= link_to "play mah game", @player_poem, class: "button large radius" %>
-<% else %>
-<%= link_to "vote, yo", "#", class: "button large radius" %>
-<% end %>
+      <h1><%= @game.name %></h1>
+      <div class="row">
+        <%= render "player_score_table" %>
+        <div class="game-info">
+          <h4 class="subheader">Game Round: <%= @game.current_round %></h4>
+          <h5 class="subheader">Rounds Left: <%= @game.round_limit - @game.current_round %>
+          <h5 class="subheader">Game Creator: <%= link_to @game.user.username, @game.user %></h5>
+        </div>
+        <div class="prompt">
+          <h3>The Prompt:</h3>
+          <h4 class="subheader">Transportation Security Administration</h4>
+        </div>
+      </div>
 
-<br>
 
-<pre>
-Todo list:
-add your score
-add leader's score
-add rounds left
-more stuff
-</pre>
+
+
+      <% if !@player_poem.game_played %>
+
+      <h3>Play your turn</h3>
+      <%= render "layouts/magnets" %>
+      <% else %>
+      <%= link_to "vote, yo", "#", class: "button large radius" %>
+      <% end %>
+
+
+      <pre>
+      Todo list:
+      more stuff
+      </pre>
+
+    </div>
+  </div>
+</div>
