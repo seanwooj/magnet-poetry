@@ -34,12 +34,19 @@ class PoemsController < ApplicationController
 
   def submit
     @poem = Poem.find(params[:id])
+    @round = @poem.round
     @poem.game_played = true
     @poem.save
+    if @round.all_submitted?
+      @round.all_submitted = true
+      @round.save
+    end
 
     respond_to do |format|
       format.json { render json: :nothing }
+      format.html { redirect_to @round.game }
     end
+
 
   end
 

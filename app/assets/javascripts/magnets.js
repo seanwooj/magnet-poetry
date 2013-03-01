@@ -1,7 +1,7 @@
 
 var Magnet = ( function () {
 
-  var Controller = function (magnetData) {
+  var Controller = function (magnetData, container) {
     var that = this;
     var $dragging = null;
     var magnetsWidth, magnetsHeight, magnetsOffset, pageWidth, pageHeight;
@@ -28,15 +28,15 @@ var Magnet = ( function () {
     // GETS AND SETS VARIABLES BASED ON WINDOW SIZE
     // SETS PAGE HEIGHT
     this.getSetVariableWidth = function() {
-      magnetsWidth = $(".magnets").width();
+      magnetsWidth = $(container).width();
       pageWidth = $(window).width();
       pageHeight = $(window).height();
 
       // dynamically setting the height to 80% of the window
-      $('.magnets').height(pageHeight * 0.6)
+      $(container).height(pageHeight * 0.6)
 
-      magnetsHeight = $(".magnets").height();
-      magnetsOffset = $('.magnets').offset();
+      magnetsHeight = $(container).height();
+      magnetsOffset = $(container).offset();
     }
 
     // RANDOM ROTATION OF MAGNETS
@@ -80,9 +80,9 @@ var Magnet = ( function () {
     // Magnet DOM creation
 
     this.dataToMagnet = function(magnetData) {
-      $('.magnets').empty();
+      $(container).empty();
       _.each(magnetData, function(wordObject){
-        $('.magnets').append(
+        $(container).append(
           $('<div/>')
             .addClass('magnet')
             .html(wordObject.word)
@@ -100,11 +100,11 @@ var Magnet = ( function () {
         that.getSetVariableWidth();
       });
 
-      $('.magnets').on("mousemove", function(e) {
+      $(container).on("mousemove", function(e) {
         that.magnetMove($dragging, e)
       });
 
-      $('.magnets').on("mousedown", "div", function (e) {
+      $(container).on("mousedown", "div", function (e) {
         $dragging = $(e.target);
       });
 

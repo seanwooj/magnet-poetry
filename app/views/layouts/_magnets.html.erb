@@ -5,7 +5,7 @@
   </div>
   <%= button_to "These words are inadequate! I need more!", spawn_new_words_poem_path, method: :post, remote: true, form_class: "add-more", class: "give-me-more button large radius" %>
   <% if !@player_poem.game_played %>
-    <%= button_to "submit this poem", submit_poem_path(@player_poem), method: :post, remote: true, form_class: "add-more", class: "give-me-more button large radius" %>
+    <%= button_to "submit this poem", submit_poem_path(@player_poem), method: :post, form_class: "add-more", class: "give-me-more button large radius" %>
   <% end %>
 </div>
 
@@ -13,7 +13,7 @@
   var magnetData = <%= @poem_words.to_json.html_safe %>;
 
   $(function(){
-    magnet = new Magnet.Controller(magnetData);
+    magnet = new Magnet.Controller(magnetData, ".magnets");
     magnet.start();
 
   });

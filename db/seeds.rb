@@ -112,5 +112,20 @@ prompts = Prompt.create([
   { body: "The Transportation Security Administration" },
   { body: "Casual Racism", nsfw: true },
   { body: "Facebook Relationships" },
-  { body: "Drinking on Weekdays", nsfw: true }
+  { body: "Drinking on Weekdays", nsfw: true },
+  { body: "Embarrasing Moments" },
+  { body: "Promoting Negative Stereotypes", nsfw: true },
+  { body: "Unplanned Pregnancy", nsfw: true },
+  { body: "Sixteen and Pregnant(TM)", nsfw: true },
+  { body: "Donkey Shows", nsfw: true },
+  { body: "Donuts", nsfw: false },
+  { body: "US Congress", nsfw: false },
+  { body: "Getting Caught Masturbating", nsfw: true },
+  { body: "Trying Too Hard", nsfw: true },
+  { body: "Thanks, Obama" },
+  { body: "Internet Memes" },
+  { body: "Private Browsing", nsfw: true },
+  { body: "Bros" }
+  { body: "Really Bad Sex", nsfw: true },
+  { body: "Blacking Out", nsfw: true },
 ])

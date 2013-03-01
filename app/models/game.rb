@@ -30,6 +30,7 @@ class Game < ActiveRecord::Base
     game.save
     players = game.players
     Poem.create_player_poems(players, round.id)
+    RoundPrompt.generate_random(round.id)
     game
   end
 
@@ -43,7 +44,7 @@ class Game < ActiveRecord::Base
 
   #this might actually be a helper
   def current_round
-    self.rounds.last.round_number
+    self.rounds.last
   end
 
   def game_over?
@@ -53,11 +54,11 @@ class Game < ActiveRecord::Base
   def new_round
     round = Round.create(
       game_id: self.id,
-      round_number: current_round + 1
+      round_number: current_round.round_number + 1
     )
 
     Poem.create_player_poems(self.players, round.id)
-
+    RoundPrompt.generate_random(round.id)
   end
 
 

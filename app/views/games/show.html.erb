@@ -6,13 +6,13 @@
       <div class="row">
         <%= render "player_score_table" %>
         <div class="game-info">
-          <h4 class="subheader">Game Round: <%= @game.current_round %></h4>
-          <h5 class="subheader">Rounds Left: <%= @game.round_limit - @game.current_round %>
+          <h4 class="subheader">Game Round: <%= @game.current_round.round_number %></h4>
+          <h5 class="subheader">Rounds Left: <%= @game.round_limit - @game.current_round.round_number %>
           <h5 class="subheader">Game Creator: <%= link_to @game.user.username, @game.user %></h5>
         </div>
         <div class="prompt">
           <h3>The Prompt:</h3>
-          <h4 class="subheader">Transportation Security Administration</h4>
+          <h4 class="subheader"><%= @current_round.prompt.body %></h4>
         </div>
       </div>
 
@@ -24,7 +24,7 @@
       <h3>Play your turn</h3>
       <%= render "layouts/magnets" %>
       <% else %>
-      <%= link_to "vote, yo", "#", class: "button large radius" %>
+      <%= link_to "vote, yo", vote_game_path, class: "button large radius" %>
       <% end %>
 
 
