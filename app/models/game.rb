@@ -1,26 +1,43 @@
 class Game < ActiveRecord::Base
-  attr_accessible :name, :user_id
+  attr_accessible :name, :user_id, :round_limit
 
   has_many :rounds
   has_many :players
   has_many :poems, through: :rounds
+  has_many :users, through: :players
 
-  def self.start_game(creator, players, name)
+  # maybe crazy
+  belongs_to :user
 
-    @players = players
-
+  def self.start_game(creator, users, name, round_limit)
     game = Game.new(
       name: name,
       user_id: creator.id,
+      round_limit: round_limit
     )
 
     round = game.rounds.build(
       round_number: 1,
     )
 
-    game.save
+    users.each do |user|
+      game.players.build(
+        user_id: user.id,
+        points: 0
+      )
+    end
 
-    Poem.create_player_poems(@players, round.id)
+    game.save
+    players = game.players
+    Poem.create_player_poems(players, round.id)
+    game
+  end
+
+  def play_round
+
+  end
+
+  def vote_round
 
   end
 
@@ -39,7 +56,7 @@ class Game < ActiveRecord::Base
       round_number: current_round + 1
     )
 
-    Poem.create_player_poems(@players, round.id)
+    Poem.create_player_poems(self.players, round.id)
 
   end
 

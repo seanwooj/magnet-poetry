@@ -7,7 +7,7 @@ class Poem < ActiveRecord::Base
   has_many :words, through: :poem_words
 
   belongs_to :round
-  belongs_to :game
+  belongs_to :gam
   belongs_to :user
 
   def self.instantiate_poem(user_id, round_id = nil)
@@ -17,6 +17,7 @@ class Poem < ActiveRecord::Base
   end
 
   def self.word_spawn(poem_id)
+    # use build instead to save db action
     @words = Word.seed_words
     @words.each do |word|
       randTop = Random.rand(100)
@@ -29,9 +30,18 @@ class Poem < ActiveRecord::Base
   end
 
   def self.create_player_poems(players, round_id)
+    users = []
     players.each do |player|
-      poem = Poem.instantiate_poem(player.id, round_id)
+      users << player.user
     end
+
+    users.each do |user|
+      poem = Poem.instantiate_poem(user.id, round_id)
+    end
+  end
+
+  def game
+    self.round.game
   end
 
 end

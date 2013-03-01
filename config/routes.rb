@@ -10,6 +10,7 @@ MagnetPoetry::Application.routes.draw do
       post 'spawn_new_words'
     end
   end
+  resources :games, only: [:show]
 
 
   root to: 'static_pages#home'

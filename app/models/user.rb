@@ -18,6 +18,11 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save { |user| user.username = username.downcase }
 
+  # associations
+  has_many :players
+  has_many :games
+  has_many :poems
+
   def self.find_for_facebook_oauth(auth, current_user)
     user = User.where(provider: auth.provider, uid: auth.uid).first
     logger.debug "#{auth.info}"

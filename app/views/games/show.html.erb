@@ -1,0 +1,27 @@
+Game: <%= @game %>
+<br>
+Game Round: <%= @game.current_round %>
+<br>
+Game Creator: <%= @game.user.username %>
+<br>
+Game Users:
+<% @game.players.each do |player| %>
+  <%= player.user.username %>
+<% end %>
+<br>
+
+<% if !@player_poem.game_played %>
+<%= link_to "play mah game", @player_poem, class: "button large radius" %>
+<% else %>
+<%= link_to "vote, yo", "#", class: "button large radius" %>
+<% end %>
+
+<br>
+
+<pre>
+Todo list:
+add your score
+add leader's score
+add rounds left
+more stuff
+</pre>
