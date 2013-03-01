@@ -32,5 +32,16 @@ class PoemsController < ApplicationController
     end
   end
 
+  def submit
+    @poem = Poem.find(params[:id])
+    @poem.game_played = true
+    @poem.save
+
+    respond_to do |format|
+      format.json { render json: :nothing }
+    end
+
+  end
+
 
 end

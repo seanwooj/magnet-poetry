@@ -1,4 +1,4 @@
-<% provide(:title, "Sign up!") %>
+<% provide(:title, "Sign in!") %>
 
 <div class="signin">
 
@@ -25,10 +25,20 @@
               <% if devise_mapping.rememberable? -%>
                 <%= f.check_box :remember_me %> <%= f.label :remember_me %>
               <% end -%>
-
-              <div class="signin-button">
+            <div>
+              <div class="inset">
                 <%= f.submit "Let's play!", class:"button large radius join-button" %>
               </div>
+            </div>
+
+              <hr>
+            <div>
+              <div class="inset">
+                <%- resource_class.omniauth_providers.each do |provider| %>
+                  <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class:"button large radius facebook-button" %>
+                <% end -%>
+              </div>
+            </div>
 
               <%= render "devise/shared/links" %>
 

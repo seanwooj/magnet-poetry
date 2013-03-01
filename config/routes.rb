@@ -8,6 +8,7 @@ MagnetPoetry::Application.routes.draw do
   resources :poems do
     member do
       post 'spawn_new_words'
+      post 'submit'
     end
   end
   resources :games, only: [:show]

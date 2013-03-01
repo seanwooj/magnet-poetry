@@ -10,7 +10,7 @@
       </div>
     <%= button_to "These words are inadequate! I need more!", spawn_new_words_poem_path, method: :post, remote: true, form_class: "add-more", class: "give-me-more button large radius" %>
     <% if !@poem.game_played %>
-      <%= button_to "submit this poem", spawn_new_words_poem_path, method: :post, remote: true, form_class: "add-more", class: "give-me-more button large radius" %>
+      <%= button_to "submit this poem", submit_poem_path, method: :post, remote: true, form_class: "add-more", class: "give-me-more button large radius" %>
     <% end %>
     </div>
   </div>

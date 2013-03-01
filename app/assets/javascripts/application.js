@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
+
+$(document).ready(function(){
+  $("div.alert-box").hide().slideDown()
+  setTimeout(function(){
+    $("div.alert-box").slideUp("slow", function () {
+      $("div.alert-box").remove();
+    });
+  }, 2000);
+});
