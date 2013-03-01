@@ -18,19 +18,6 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save { |user| user.username = username.downcase }
 
-  # validates :username, presence: true, length: { maximum: 30 },
-  #           uniqueness: { case_sensitive: false }
-  # validates :first_name, presence: true, length: { maximum: 30 }
-  # validates :last_name, presence: true, length: { maximum: 30 }
-
-  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  # validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-  #           uniqueness: { case_sensitive: false }
-
-  # validates :password, presence: true, length: { minimum: 6 }
-  # validates :password_confirmation, presence: true
-
-  # OAUTH
   def self.find_for_facebook_oauth(auth, current_user)
     user = User.where(provider: auth.provider, uid: auth.uid).first
     logger.debug "#{auth.info}"

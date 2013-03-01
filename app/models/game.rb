@@ -2,10 +2,10 @@ class Game < ActiveRecord::Base
   attr_accessible :name, :user_id
 
   has_many :rounds
-  # has_many :players # don't know about this.
+  has_many :players
   has_many :poems, through: :rounds
 
-  def self.initialize(creator, players, name)
+  def self.start_game(creator, players, name)
 
     @players = players
 
@@ -13,13 +13,12 @@ class Game < ActiveRecord::Base
       name: name,
       user_id: creator.id,
     )
-    game.save!
 
-    round = Round.create(
-      game_id: game.id,
+    round = game.rounds.build(
       round_number: 1,
-      # BE SURE TO ADD PROMPT
     )
+
+    game.save
 
     Poem.create_player_poems(@players, round.id)
 
