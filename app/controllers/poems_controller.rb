@@ -32,14 +32,5 @@ class PoemsController < ApplicationController
     end
   end
 
-  def refresh_words
-    @poem = Poem.find(params[:id])
-    @poem_words = @poem.poem_words.includes(:word).all
-
-    respond_to do |format|
-      format.json { render json: @poem_words }
-    end
-  end
-
 
 end
