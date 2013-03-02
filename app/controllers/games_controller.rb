@@ -31,10 +31,12 @@ class GamesController < ApplicationController
   def vote
     @game = Game.find(params[:id])
     @user = current_user
+    @current_round = @game.current_round
+    @current_prompt = @current_round.prompt
+    @poems = @current_round.poems
   end
 
   def cast_vote
-
   end
 
 end

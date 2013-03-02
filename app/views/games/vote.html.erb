@@ -1,0 +1,25 @@
+<div class="masthead">
+  <div class="row main-container">
+    <div class="twelve columns centered masthead-content">
+
+      <h1><%= @game.name %> Vote!</h1>
+      <div class="row">
+        <%= render "player_score_table" %>
+        <div class="game-info">
+          <h4 class="subheader">Game Round: <%= @game.current_round.round_number %></h4>
+          <h5 class="subheader">Rounds Left: <%= @game.round_limit - @game.current_round.round_number %>
+          <h5 class="subheader">Game Creator: <%= link_to @game.user.username, @game.user %></h5>
+        </div>
+        <div class="prompt">
+          <h3>The Prompt:</h3>
+          <h4 class="subheader"><%= @current_round.prompt.body %></h4>
+        </div>
+      </div>
+
+      <% @poems.each do |poem| %>
+        <%= render "poem_votes", container: "#{poem.id}-container", poem: poem %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
