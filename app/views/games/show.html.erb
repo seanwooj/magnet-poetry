@@ -22,7 +22,7 @@
       <% if !@player_poem.game_played %>
 
       <h3>Play your turn</h3>
-      <%= render "layouts/magnets", container: "player-container" %>
+      <%= render "layouts/magnets", container: "player-container", poem: @player_poem %>
       <% else %>
       <%= link_to "vote, yo", vote_game_path, class: "button large radius" %>
       <% end %>

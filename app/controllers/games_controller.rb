@@ -2,10 +2,19 @@ class GamesController < ApplicationController
   before_filter :authenticate_user!
 
   def new
-
+    @game = Game.new
+    @users = User.all
+    @game.players.build
   end
 
   def create
+    @game = Game.new(params[:game])
+    @game.user_id = current_user.id
+    if @game.save
+      render 'new'
+    else
+      render 'new'
+    end
   end
 
   def show

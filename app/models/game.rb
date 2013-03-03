@@ -1,8 +1,9 @@
 class Game < ActiveRecord::Base
-  attr_accessible :name, :user_id, :round_limit
+  attr_accessible :name, :user_id, :round_limit, :players_attributes
 
   has_many :rounds
-  has_many :players
+  has_many :players, inverse_of: :game
+  accepts_nested_attributes_for :players
   has_many :poems, through: :rounds
   has_many :users, through: :players
 

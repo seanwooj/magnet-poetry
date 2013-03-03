@@ -2,8 +2,25 @@
   <div class="row main-container">
     <div class="twelve columns centered masthead-content">
       <h1>New Game</h1>
-      <p>This is a poem</p>
+      <%= simple_form_for @game do |f| %>
+        <%= f.input :name %>
+        <%= f.input :round_limit, collection: 5..20 %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
 
+        <%= f.simple_fields_for :players do |sff| %>
+          <%= sff.input :user_id,
+                        collection: User.all,
+                        as: :check_boxes,
+                        prompt: "pick users to play with!",
+                        label_method: :username,
+                        value_method: :id %>
+          <%= sff.hidden_field :points, value: 0 %>
+        <% end %>
+
+        <%= f.association :user %>
+
+        <%= f.submit "play!", class: "button large radius" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -12,8 +12,8 @@ class PoemsController < ApplicationController
   end
 
   def show
-    @player_poem = Poem.find(params[:id])
-    @poem_words = @player_poem.poem_words.includes(:word).all
+    @poem = Poem.find(params[:id])
+    @poem_words = @poem.poem_words.includes(:word).all
 
     respond_to do |format|
       format.json { render json: @poem_words }

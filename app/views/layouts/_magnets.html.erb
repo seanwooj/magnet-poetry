@@ -3,14 +3,14 @@
     <div class="magnets eleven columns centered <%= container %>">
     </div>
   </div>
-  <%= button_to "These words are inadequate! I need more!", spawn_new_words_poem_path, method: :post, remote: true, form_class: "add-more", class: "give-me-more button large radius" %>
-  <% if !@player_poem.game_played %>
-    <%= button_to "submit this poem", submit_poem_path(@player_poem), method: :post, form_class: "add-more", class: "give-me-more button large radius" %>
+  <%= button_to "These words are inadequate! I need more!", spawn_new_words_poem_path(poem), method: :post, remote: true, form_class: "add-more", class: "give-me-more button large radius" %>
+  <% if poem.game_played %>
+    <%= button_to "submit this poem", submit_poem_path(poem), method: :post, form_class: "add-more", class: "give-me-more button large radius" %>
   <% end %>
 </div>
 
 <script>
-  var magnetData = <%= @poem_words.to_json.html_safe %>;
+  var magnetData = <%= poem.poem_words.to_json.html_safe %>;
 
   $(function(){
     magnet = new Magnet.Controller(magnetData, "<%= ".#{container}" %>");

@@ -5,6 +5,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'simple_form'
 
 # Frontend Gems
 gem 'compass-rails'

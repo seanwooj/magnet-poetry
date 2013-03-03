@@ -118,7 +118,7 @@ prompts = Prompt.create([
   { body: "Unplanned Pregnancy", nsfw: true },
   { body: "Sixteen and Pregnant(TM)", nsfw: true },
   { body: "Donkey Shows", nsfw: true },
-  { body: "Donuts", nsfw: false },
+  { body: "Donuts" },
   { body: "US Congress", nsfw: false },
   { body: "Getting Caught Masturbating", nsfw: true },
   { body: "Trying Too Hard", nsfw: true },
