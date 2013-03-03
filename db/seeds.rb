@@ -125,7 +125,7 @@ prompts = Prompt.create([
   { body: "Thanks, Obama" },
   { body: "Internet Memes" },
   { body: "Private Browsing", nsfw: true },
-  { body: "Bros" }
+  { body: "Bros" },
   { body: "Really Bad Sex", nsfw: true },
-  { body: "Blacking Out", nsfw: true },
+  { body: "Blacking Out", nsfw: true }
 ])
