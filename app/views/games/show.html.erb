@@ -23,6 +23,9 @@
 
       <h3>Play your turn</h3>
       <%= render "layouts/magnets", container: "player-container", poem: @player_poem %>
+      <% if !@player_poem.game_played %>
+        <%= button_to "submit this poem", submit_poem_path(@player_poem), method: :post, form_class: "add-more", class: "give-me-more button large radius" %>
+      <% end %>
       <% else %>
       <%= link_to "vote, yo", vote_game_path, class: "button large radius" %>
       <% end %>

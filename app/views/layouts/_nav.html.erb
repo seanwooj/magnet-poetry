@@ -8,9 +8,17 @@
       <% if !user_signed_in? %>
         <li><%= link_to "Login", signin_path %></li>
       <% else %>
-        <li><%= link_to "New Game", new_game_path, method: :get %>
-        <li><%= link_to "New Poem", poems_path, method: :post %>
-        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <li class="has-dropdown">
+          <a href="#">Menu</a>
+          <ul class="dropdown">
+            <% if current_user.players.last != nil %>
+              <li><%= link_to "My Latest Game", current_user.players.last.game %></li>
+            <% end %>
+            <li><%= link_to "New Game", new_game_path, method: :get %>
+            <li><%= link_to "New Poem", poems_path, method: :post %>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
       <% end %>
     </ul>
   </section>
