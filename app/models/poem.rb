@@ -45,4 +45,8 @@ class Poem < ActiveRecord::Base
     self.round.game
   end
 
+  def get_score
+    Vote.where(poem_id: self.id).count
+  end
+
 end
