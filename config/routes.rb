@@ -12,10 +12,7 @@ MagnetPoetry::Application.routes.draw do
     end
   end
   resources :games do
-    member do
-      get 'vote'
-      post 'cast_vote'
-    end
+    resources :votes
   end
 
 

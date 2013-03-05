@@ -4,7 +4,7 @@
 
       <h1><%= @game.name %></h1>
       <div class="row">
-        <%= render "player_score_table" %>
+        <%= render "layouts/player_score_table" %>
         <div class="game-info">
           <h4 class="subheader">Game Round: <%= @game.current_round.round_number %></h4>
           <h5 class="subheader">Rounds Left: <%= @game.round_limit - @game.current_round.round_number %>
@@ -27,13 +27,15 @@
         <%= button_to "submit this poem", submit_poem_path(@player_poem), method: :post, form_class: "add-more", class: "give-me-more button large radius" %>
       <% end %>
       <% else %>
-      <%= link_to "vote, yo", vote_game_path, class: "button large radius" %>
+      <%= link_to "vote, yo", new_game_vote_path(@game.id), class: "button large radius" %>
       <% end %>
 
 
       <pre>
       Todo list:
-      more stuff
+      Add check for votes that have already been cast
+      Don't allow people who have voted to vote again
+      Check to see if every player has voted, then create a new round.
       </pre>
 
     </div>

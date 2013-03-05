@@ -1,0 +1,135 @@
+digraph MagnetPoetry {
+  rankdir = "LR"; ranksep = "0.5"; nodesep = "0.4"; pad = "0.4,0.4"; margin = "0,0"; concentrate = "true"; labelloc = "t"; fontsize = "13"; fontname = "Arial Bold";
+  node [shape = "Mrecord", fontsize = "10", fontname = "Arial", margin = "0.07,0.05", penwidth = "1.0"];
+  edge [fontname = "Arial", fontsize = "7", dir = "both", arrowsize = "0.9", penwidth = "1.0", labelangle = "32", labeldistance = "1.8"];
+  label = "MagnetPoetry domain model\n\n";
+  m_Category [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Category</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="category">category <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_Game [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Game</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="round_limit">round_limit <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+  m_Player [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Player</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="points">points <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+  m_Poem [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Poem</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="game_played">game_played <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_PoemWord [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">PoemWord</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="left">left <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="top">top <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_Prompt [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Prompt</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="body">body <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="nsfw">nsfw <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+</table>
+>];
+  m_Prompts [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Prompts</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="body">body <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="nsfw">nsfw <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+</table>
+>];
+  m_Round [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Round</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="all_submitted">all_submitted <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="all_voted">all_voted <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="round_number">round_number <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+  m_RoundPrompt [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">RoundPrompt</font></td></tr>
+</table>
+>];
+  m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">User</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="current_sign_in_at">current_sign_in_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="current_sign_in_ip">current_sign_in_ip <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_password">encrypted_password <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="first_name">first_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="last_name">last_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="last_sign_in_at">last_sign_in_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="last_sign_in_ip">last_sign_in_ip <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="provider">provider <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="remember_created_at">remember_created_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="reset_password_sent_at">reset_password_sent_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="reset_password_token">reset_password_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="sign_in_count">sign_in_count <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="uid">uid <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="username">username <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_Vote [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Vote</font></td></tr>
+</table>
+>];
+  m_Word [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Word</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="NSFW">NSFW <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="word">word <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_User -> m_Player [arrowhead = "normal", arrowtail = "none", weight = "2"]
+  m_User -> m_Game [arrowhead = "normal", arrowtail = "none", weight = "2"]
+  m_User -> m_Poem [arrowhead = "normal", arrowtail = "none", weight = "2"]
+  m_User -> m_Vote [arrowhead = "normal", arrowtail = "none", weight = "2"]
+  m_Game -> m_Round [arrowhead = "normal", arrowtail = "none", weight = "2"]
+  m_Game -> m_Player [arrowhead = "normal", arrowtail = "none", weight = "2"]
+  m_Game -> m_Poem [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"]
+  m_Game -> m_User [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"]
+  m_Poem -> m_PoemWord [arrowhead = "normal", arrowtail = "none", weight = "2"]
+  m_Word -> m_PoemWord [arrowhead = "normal", arrowtail = "none", weight = "2"]
+  m_Poem -> m_Word [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"]
+  m_Poem -> m_Vote [arrowhead = "normal", arrowtail = "none", weight = "2"]
+  m_Round -> m_Poem [arrowhead = "normal", arrowtail = "none", weight = "2"]
+  m_Game -> m_Poem [arrowhead = "normal", arrowtail = "none", weight = "1"]
+  m_Category -> m_Word [arrowhead = "normal", arrowtail = "none", weight = "2"]
+  m_Prompt -> m_RoundPrompt [arrowhead = "normal", arrowtail = "none", weight = "2"]
+  m_Round -> m_Player [arrowhead = "normal", arrowtail = "none", weight = "1"]
+  m_Round -> m_RoundPrompt [arrowhead = "none", arrowtail = "none", weight = "2"]
+  m_Round -> m_Prompt [style = "dotted", arrowhead = "none", arrowtail = "none", weight = "1", constraint = "false"]
+}

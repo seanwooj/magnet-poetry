@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many :players
   has_many :games
   has_many :poems
+  has_many :votes
 
   def self.find_for_facebook_oauth(auth, current_user)
     user = User.where(provider: auth.provider, uid: auth.uid).first

@@ -35,12 +35,8 @@ class Game < ActiveRecord::Base
     game
   end
 
-  def play_round
-
-  end
-
-  def vote_round
-
+  def all_voted?
+    
   end
 
   #this might actually be a helper

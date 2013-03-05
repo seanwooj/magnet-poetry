@@ -1,0 +1,26 @@
+<div class="magnets-container">
+  <div class="row">
+    <div class="magnets eleven columns centered <%= container %>">
+    </div>
+  </div>
+  <%= button_to "I choose you!", 
+                game_votes_path(
+                  user_id: current_user.id,
+                  poem_id: poem.id,
+                  game_id: @game.id
+                ), 
+                method: :post, 
+                form_class: "add-more", 
+                class: "give-me-more button large radius" %>
+</div>
+<%= poem.id %>
+
+<script>
+  var magnetData<%= poem.id %> = <%= poem.poem_words.to_json.html_safe %>;
+
+  $(function(){
+    magnet<%= poem.id %> = new Magnet.Controller(magnetData<%= poem.id %>, "<%= ".#{container}" %>");
+    magnet<%= poem.id %>.start();
+
+  });
+</script>

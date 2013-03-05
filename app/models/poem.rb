@@ -5,9 +5,10 @@ class Poem < ActiveRecord::Base
   accepts_nested_attributes_for :poem_words
 
   has_many :words, through: :poem_words
+  has_many :votes
 
   belongs_to :round
-  belongs_to :gam
+  belongs_to :game
   belongs_to :user
 
   def self.instantiate_poem(user_id, round_id = nil)

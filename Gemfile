@@ -16,6 +16,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rb-fsevent'
   gem 'guard-rspec'
+  gem 'rails-erd'
 end
 
 group :test do
