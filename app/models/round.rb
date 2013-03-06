@@ -34,15 +34,20 @@ class Round < ActiveRecord::Base
   end
 
   def get_best_poem
-    best_poem = nil
-    self.poems.each do |poem|
-      if best_poem == nil
-        best_poem = poem
-      elsif poem.get_score > best_poem.get_score
-        best_poem = poem
+    if self.all_voted?
+      best_poem = nil
+      self.poems.each do |poem|
+        if best_poem == nil
+          best_poem = poem
+        elsif poem.get_score > best_poem.get_score
+          best_poem = poem
+        end
       end
-      best_poem[0]
+      best_poem
+    else
+      nil
     end
+    best_poem
   end
 
   def get_poem_scores

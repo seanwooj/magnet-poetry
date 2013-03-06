@@ -1,11 +1,22 @@
 
 body {
   h1,h2,h3,h4,h5 {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Sanchez', sans-serif;
+    font-weight: normal;
   }
 
   .alert-box {
     margin: 0;
     border-radius: 0px;
+  }
+
+  .button {
+    border: none;
+    border-bottom: 5px solid #1e728c;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    font-family: "Sanchez", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
   }
 }

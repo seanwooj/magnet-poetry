@@ -3,14 +3,14 @@
     <div class="magnets eleven columns centered <%= container %>">
     </div>
   </div>
-  <%= button_to "I choose you!", 
+  <%= button_to "I choose you!",
                 game_votes_path(
                   user_id: current_user.id,
                   poem_id: poem.id,
                   game_id: @game.id
-                ), 
-                method: :post, 
-                form_class: "add-more", 
+                ),
+                method: :post,
+                form_class: "add-more",
                 class: "give-me-more button large radius" %>
 </div>
 <%= poem.id %>

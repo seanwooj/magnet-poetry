@@ -23,19 +23,21 @@
 
       <h3>Play your turn</h3>
       <%= render "layouts/magnets", container: "player-container", poem: @player_poem %>
-      <% if !@player_poem.game_played %>
         <%= button_to "submit this poem", submit_poem_path(@player_poem), method: :post, form_class: "add-more", class: "give-me-more button large radius" %>
-      <% end %>
       <% else %>
-      <%= link_to "vote, yo", new_game_vote_path(@game.id), class: "button large radius" %>
+        <% if @current_round.all_submitted? && !@current_round.user_voted?(@user) %>
+          <%= link_to "vote, yo", new_game_vote_path(@game.id), class: "button large radius" %>
+        <% else %>
+          <h3>Waiting on everyone's move..</h3>
+          <%= image_tag("horse.gif") %>
+        <% end %>
       <% end %>
 
 
       <pre>
       Todo list:
-      Add check for votes that have already been cast
-      Don't allow people who have voted to vote again
-      Check to see if every player has voted, then create a new round.
+      PROBLEM -- TIES GO TO THE FIRST PERSON SELECTED
+      add tiebreaker
       </pre>
 
     </div>

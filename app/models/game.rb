@@ -35,8 +35,8 @@ class Game < ActiveRecord::Base
     game
   end
 
-  def all_voted?
-    
+  def player_by_user_id(user_id)
+    self.players.where(user_id: user_id)[0]
   end
 
   #this might actually be a helper
@@ -44,7 +44,15 @@ class Game < ActiveRecord::Base
     self.rounds.last
   end
 
-  def game_over?
+  def over?
+    if self.current_round.round_number >= self.round_limit && self.current_round.all_voted?
+      return true
+    else
+      return false
+    end
+  end
+
+  def get_winner
 
   end
 

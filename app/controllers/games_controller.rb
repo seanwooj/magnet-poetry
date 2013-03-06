@@ -20,6 +20,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @user = current_user
+
     @player_poem = Poem
       .joins("JOIN rounds ON rounds.id = poems.round_id")
       .where("rounds.game_id = ? AND
@@ -28,13 +29,28 @@ class GamesController < ApplicationController
               params[:id], current_user.id,
               @game.current_round.round_number)
       .last
+
     @poem_words = @player_poem.poem_words
     @current_round = @game.current_round
+
     @current_prompt = @current_round.prompt
+
+    if @game.over?
+      redirect_to winner_game_path(@game)
+    elsif @current_round.all_submitted? && !@current_round.user_voted?(@user)
+      redirect_to new_game_vote_path(@game.id)
+    end
   end
 
   def index
 
+  end
+
+  def winner
+    @game = Game.find(params[:id])
+    unless @game.over?
+      redirect_to @game
+    end
   end
 
 end

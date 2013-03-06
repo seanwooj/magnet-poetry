@@ -13,6 +13,9 @@ MagnetPoetry::Application.routes.draw do
   end
   resources :games do
     resources :votes
+    member do
+      get 'winner'
+    end
   end
 
 
