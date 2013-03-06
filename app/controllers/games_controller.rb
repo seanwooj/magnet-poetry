@@ -53,4 +53,14 @@ class GamesController < ApplicationController
     end
   end
 
+  def check_submissions
+    @game = Game.find(params[:id])
+    submitted = @game.current_round.all_submitted?
+    voted = @game.current_round.all_voted?
+    hash = { submitted: submitted, voted: voted }
+    respond_to do |format|
+      format.json { render json: hash }
+    end
+  end
+
 end

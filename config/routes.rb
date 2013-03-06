@@ -15,6 +15,7 @@ MagnetPoetry::Application.routes.draw do
     resources :votes
     member do
       get 'winner'
+      get 'check_submissions'
     end
   end
 

@@ -24,16 +24,40 @@
       <h3>Play your turn</h3>
       <%= render "layouts/magnets", container: "player-container", poem: @player_poem %>
         <%= button_to "submit this poem", submit_poem_path(@player_poem), method: :post, form_class: "add-more", class: "give-me-more button large radius" %>
+
+
       <% else %>
-        <% if @current_round.all_submitted? && !@current_round.user_voted?(@user) %>
-          <%= link_to "vote, yo", new_game_vote_path(@game.id), class: "button large radius" %>
-        <% else %>
+        <% if !@current_round.all_submitted? %>
           <h3>Waiting on everyone's move..</h3>
           <%= image_tag("horse.gif") %>
           <script>
-            setTimeout(function(){
-              location.reload()
-            }, 5000)
+            $(function(){
+              setInterval(function(){
+                $.getJSON('<%= @game.id %>/check_submissions.json', function(data){
+                  console.log(data["submitted"])
+                  if (data["submitted"] === true) {
+                    location.reload()
+                  }
+                });
+              }, 1000)
+            });
+          </script>
+        <% elsif @current_round.all_submitted? && !@current_round.user_voted?(@user) %>
+          <%= link_to "vote, yo", new_game_vote_path(@game.id), class: "button large radius" %>
+        <% elsif @current_round.all_submitted? && @current_round.user_voted?(@user) %>
+          <h3>Waiting on everyone's vote..</h3>
+          <%= image_tag("horse.gif") %>
+          <script>
+            $(function(){
+              setInterval(function(){
+                $.getJSON('<%= @game.id %>/check_submissions.json', function(data){
+                  console.log(data["voted"])
+                  if (data["voted"] === false && data["submitted"] == false ) {
+                    location.reload()
+                  }
+                });
+              }, 1000)
+            });
           </script>
         <% end %>
       <% end %>
