@@ -8,13 +8,13 @@ class VotesController < ApplicationController
 	end
 
 	def create
+    @game = Game.find(params[:game_id])
 		@vote = Vote.new
 		@vote.update_attributes(
 			user_id: params[:user_id],
-			poem_id: params[:poem_id]
+			poem_id: params[:poem_id],
+      round_id: @game.current_round.id
 		)
-		@game = Game.find(params[:game_id])
-		@game.new_round
 		redirect_to game_path(params[:game_id])
 	end
 end

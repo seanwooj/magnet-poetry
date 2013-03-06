@@ -5,6 +5,7 @@ class Round < ActiveRecord::Base
   has_many :players
   has_one :round_prompt
   has_one :prompt, through: :round_prompt
+  has_many :votes
 
   belongs_to :game
 
@@ -19,7 +20,17 @@ class Round < ActiveRecord::Base
   end
 
   def all_voted?
-    
+    self.game.users.each do |user|
+      return false if !self.user_voted?(user)
+    end
+    true
+  end
+
+  def user_voted?(user)
+    self.votes.each do |vote|
+      return true if vote.user_id == user.id
+    end
+    false
   end
 
   def get_best_poem

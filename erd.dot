@@ -55,15 +55,6 @@ digraph MagnetPoetry {
   <tr><td align="left" width="130" port="nsfw">nsfw <font face="Arial Italic" color="grey60">boolean</font></td></tr>
 </table>
 >];
-  m_Prompts [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
-  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Prompts</font></td></tr>
-</table>
-|
-<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="body">body <font face="Arial Italic" color="grey60">text</font></td></tr>
-  <tr><td align="left" width="130" port="nsfw">nsfw <font face="Arial Italic" color="grey60">boolean</font></td></tr>
-</table>
->];
   m_Round [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Round</font></td></tr>
 </table>
@@ -127,6 +118,7 @@ digraph MagnetPoetry {
   m_Poem -> m_Vote [arrowhead = "normal", arrowtail = "none", weight = "2"]
   m_Round -> m_Poem [arrowhead = "normal", arrowtail = "none", weight = "2"]
   m_Game -> m_Poem [arrowhead = "normal", arrowtail = "none", weight = "1"]
+  m_Round -> m_Vote [arrowhead = "normal", arrowtail = "none", weight = "2"]
   m_Category -> m_Word [arrowhead = "normal", arrowtail = "none", weight = "2"]
   m_Prompt -> m_RoundPrompt [arrowhead = "normal", arrowtail = "none", weight = "2"]
   m_Round -> m_Player [arrowhead = "normal", arrowtail = "none", weight = "1"]
