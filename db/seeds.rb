@@ -10,11 +10,12 @@ categories = Category.create([
   {category: "noun"},
   {category: "verb"},
   {category: "adjective"},
-  {category: "adverb"},
+  {category: "suffixes"},
   {category: "preposition"},
   {category: "conjunction"},
   {category: "pronoun"},
-  {category: "interjection"}
+  {category: "be"},
+  {category: "article"}
 ])
 
 nouns = Word.create([
@@ -29,7 +30,104 @@ nouns = Word.create([
   { word: "circle", category_id: 1 },
   { word: "parasite", category_id: 1 },
   { word: "finger", category_id: 1 },
-  { word: "rash", category_id: 1 }
+  { word: "bagpipe", category_id: 1 },
+  { word: "heat", category_id: 1 },
+  { word: "jet", category_id: 1 },
+  { word: "lycra", category_id: 1 },
+  { word: "lute", category_id: 1 },
+  { word: "octave", category_id: 1 },
+  { word: "title", category_id: 1 },
+  { word: "transport", category_id: 1 },
+  { word: "waterfall", category_id: 1 },
+  { word: "hand", category_id: 1 },
+  { word: "watch", category_id: 1 },
+  { word: "metal", category_id: 1 },
+  { word: "graphic", category_id: 1 },
+  { word: "fish", category_id: 1 },
+  { word: "graphic", category_id: 1 },
+  { word: "muscle", category_id: 1 },
+  { word: "rubber", category_id: 1 },
+  { word: "improvement", category_id: 1 },
+  { word: "bongo", category_id: 1 },
+  { word: "maid", category_id: 1 },
+  { word: "comfort", category_id: 1 },
+  { word: "woman", category_id: 1 },
+  { word: "man", category_id: 1 },
+  { word: "planet", category_id: 1 },
+  { word: "ball", category_id: 1 },
+  { word: "stew", category_id: 1 },
+  { word: "slave", category_id: 1 },
+  { word: "beaver", category_id: 1 },
+  { word: "cat", category_id: 1 },
+  { word: "camel", category_id: 1 },
+  { word: "toe", category_id: 1 },
+  { word: "fiber", category_id: 1 },
+  { word: "toilet", category_id: 1 },
+  { word: "whiskey", category_id: 1 },
+  { word: "clam", category_id: 1 },
+  { word: "shank", category_id: 1 },
+  { word: "style", category_id: 1 },
+  { word: "sumo", category_id: 1 },
+  { word: "history", category_id: 1 },
+  { word: "glass", category_id: 1 },
+  { word: "missile", category_id: 1 },
+  { word: "psychiatrist", category_id: 1 },
+  { word: "resolution", category_id: 1 },
+  { word: "leeks", category_id: 1 },
+  { word: "probation", category_id: 1 },
+  { word: "species", category_id: 1 },
+  { word: "secretary", category_id: 1 },
+  { word: "desire", category_id: 1 },
+  { word: "tension", category_id: 1 },
+  { word: "closet", category_id: 1 },
+  { word: "bro", category_id: 1 },
+  { word: "target", category_id: 1 },
+  { word: "vase", category_id: 1 },
+  { word: "castle", category_id: 1 },
+  { word: "tentacle", category_id: 1 },
+  { word: "soap", category_id: 1 },
+  { word: "sack", category_id: 1 },
+  { word: "protest", category_id: 1 },
+  { word: "lass", category_id: 1 },
+  { word: "jeans", category_id: 1 },
+  { word: "juice", category_id: 1 },
+  { word: "spy", category_id: 1 },
+  { word: "boot", category_id: 1 },
+  { word: "port", category_id: 1 },
+  { word: "dock", category_id: 1 },
+  { word: "substance", category_id: 1 },
+  { word: "stick", category_id: 1 },
+  { word: "furniture", category_id: 1 },
+  { word: "gang", category_id: 1 },
+  { word: "bang", category_id: 1 },
+  { word: "clap", category_id: 1 },
+  { word: "fly", category_id: 1 },
+  { word: "case", category_id: 1 },
+  { word: "face", category_id: 1 },
+  { word: "mouth", category_id: 1 },
+  { word: "hole", category_id: 1 },
+  { word: "mango", category_id: 1 },
+  { word: "pickle", category_id: 1 },
+  { word: "deuce", category_id: 1 },
+  { word: "forecast", category_id: 1 },
+  { word: "utensil", category_id: 1 },
+  { word: "four", category_id: 1 },
+  { word: "score", category_id: 1 },
+  { word: "skin", category_id: 1 },
+  { word: "vest", category_id: 1 },
+  { word: "leather", category_id: 1 },
+  { word: "sofa", category_id: 1 },
+  { word: "donkey", category_id: 1 },
+  { word: "massage", category_id: 1 },
+  { word: "touch", category_id: 1 },
+  { word: "meat", category_id: 1 },
+  { word: "brisket", category_id: 1 },
+  { word: "egg", category_id: 1 },
+  { word: "community", category_id: 1 },
+  { word: "knee", category_id: 1 },
+  { word: "cap", category_id: 1 },
+  { word: "test", category_id: 1 },
+  { word: "mushroom", category_id: 1 }
 ])
 
 verbs = Word.create([
@@ -42,7 +140,41 @@ verbs = Word.create([
   { word: "rampage", category_id: 2 },
   { word: "disappear", category_id: 2 },
   { word: "promote", category_id: 2 },
-  { word: "disparge", category_id: 2 }
+  { word: "reject", category_id: 2 },
+  { word: "shoot", category_id: 2 },
+  { word: "swallow", category_id: 2 },
+  { word: "drop", category_id: 2 },
+  { word: "clip", category_id: 2 },
+  { word: "train", category_id: 2 },
+  { word: "report", category_id: 2 },
+  { word: "accomodate", category_id: 2 },
+  { word: "observe", category_id: 2 },
+  { word: "display", category_id: 2 },
+  { word: "clarify", category_id: 2 },
+  { word: "discuss", category_id: 2 },
+  { word: "sketch", category_id: 2 },
+  { word: "complete", category_id: 2 },
+  { word: "modify", category_id: 2 },
+  { word: "volunteer", category_id: 2 },
+  { word: "begin", category_id: 2 },
+  { word: "aid", category_id: 2 },
+  { word: "advertise", category_id: 2 },
+  { word: "lead", category_id: 2 },
+  { word: "prepare", category_id: 2 },
+  { word: "improve", category_id: 2 },
+  { word: "focus", category_id: 2 },
+  { word: "anticipate", category_id: 2 },
+  { word: "attract", category_id: 2 },
+  { word: "stimulate", category_id: 2 },
+  { word: "disclose", category_id: 2 },
+  { word: "explain", category_id: 2 },
+  { word: "toggle", category_id: 2 },
+  { word: "blackmail", category_id: 2 },
+  { word: "dispose", category_id: 2 },
+  { word: "emit", category_id: 2 },
+  { word: "bless", category_id: 2 },
+  { word: "season", category_id: 2 },
+  { word: "let", category_id: 2 }
 ])
 
 adjectives = Word.create([
@@ -55,12 +187,23 @@ adjectives = Word.create([
   { word: "stagnant", category_id: 3 },
   { word: "emotional", category_id: 3 },
   { word: "enthusiastic", category_id: 3 },
-  { word: "piercing", category_id: 3 }
+  { word: "piercing", category_id: 3 },
+  { word: "viscous", category_id: 3 },
+  { word: "serious", category_id: 3 },
+  { word: "moist", category_id: 3 },
+  { word: "vapid", category_id: 3 },
+  { word: "vast", category_id: 3 },
+  { word: "vigorous", category_id: 3 },
+  { word: "tender", category_id: 3 }
 ])
 
-adverb = Word.create([
+suffixes = Word.create([
   { word: "ly", category_id: 4 },
-  { word: "y", category_id: 4 }
+  { word: "y", category_id: 4 },
+  { word: "ed", category_id: 4 },
+  { word: "ing", category_id: 4 },
+  { word: "ion", category_id: 4 },
+  { word: "s", category_id: 4 }
 ])
 
 prepositions = Word.create([
@@ -73,7 +216,8 @@ prepositions = Word.create([
   { word: "far", category_id: 5 },
   { word: "within", category_id: 5 },
   { word: "without", category_id: 5 },
-  { word: "despite", category_id: 5 }
+  { word: "despite", category_id: 5 },
+  { word: "to", category_id: 5 }
 ])
 
 conjunctions = Word.create([
@@ -102,9 +246,23 @@ pronouns = Word.create([
   { word: "theirs", category_id: 7 }
 ])
 
-interjection = Word.create([
-  { word: "hey", category_id: 8 },
-  { word: "ouch", category_id: 8 }
+be = Word.create([
+  { word: "be", category_id: 8 },
+  { word: "was", category_id: 8 },
+  { word: "were", category_id: 8 },
+  { word: "been", category_id: 8 },
+  { word: "am", category_id: 8 },
+  { word: "is", category_id: 8 },
+  { word: "are", category_id: 8 }
+])
+
+articles = Word.create([
+  { word: "a", category_id: 9 },
+  { word: "the", category_id: 9 }
+])
+
+essentials = Word.create([
+  { word: "my", category_id: 10 }
 ])
 
 prompts = Prompt.create([
@@ -131,5 +289,9 @@ prompts = Prompt.create([
   { body: "Bad Roommates" },
   { body: "Computer Problems" },
   { body: "Tacos or Hotdogs" },
-  { body: "Public Displays of Affection" }
+  { body: "Public Displays of Affection" },
+  { body: "Noir Film" },
+  { body: "PBR" },
+  { body: "That's Awkward" },
+  { body: "Raves" }
 ])

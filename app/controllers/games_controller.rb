@@ -3,16 +3,18 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    @users = User.all
+    @users = User.where('id not in (?)', current_user.id )
     @game.players.build
   end
 
   def create
-    @game = Game.new(params[:game])
-    @game.user_id = current_user.id
-    if @game.save
-      @game.start_game
-      redirect_to @game
+    game = Game.new(params[:game])
+    user_ids = params[:game][:user_ids] << current_user.id
+    game.user_ids = user_ids
+    game.user_id = current_user.id
+    if game.save
+      game.start_game
+      redirect_to game
     else
       render 'new'
     end

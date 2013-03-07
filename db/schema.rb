@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307030012) do
+ActiveRecord::Schema.define(:version => 20130307064300) do
 
   create_table "categories", :force => true do |t|
     t.string   "category"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20130307030012) do
 
   create_table "rounds", :force => true do |t|
     t.integer  "game_id"
-    t.integer  "round_number",  :default => 0
+    t.integer  "round_number",  :default => 1
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.boolean  "all_submitted", :default => false

@@ -15,7 +15,7 @@ class Word < ActiveRecord::Base
 
   def self.seed_words
     seed_words = []
-    (1..7).each do |num|
+    (1..9).each do |num|
       seed_words << get_random(num, 3);
     end
     seed_words.flatten!
