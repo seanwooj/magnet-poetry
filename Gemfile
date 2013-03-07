@@ -9,7 +9,7 @@ gem 'simple_form'
 
 # Frontend Gems
 gem 'compass-rails'
-gem 'zurb-foundation'
+gem 'zurb-foundation', '3.2.5'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
