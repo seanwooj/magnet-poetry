@@ -7,17 +7,12 @@
         <%= f.input :round_limit, collection: 5..20 %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
 
-        <%= f.simple_fields_for :players do |sff| %>
-          <%= sff.input :user_id,
-                        collection: User.all,
-                        as: :check_boxes,
-                        prompt: "pick users to play with!",
-                        label_method: :username,
-                        value_method: :id %>
-          <%= sff.hidden_field :points, value: 0 %>
-        <% end %>
-
-        <%= f.association :user %>
+        <%= f.input :user_ids,
+                    collection: User.all,
+                    label_method: :username,
+                    value_method: :id,
+                    as: :check_boxes
+         %>
 
         <%= f.submit "play!", class: "button large radius" %>
       <% end %>

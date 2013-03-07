@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306000350) do
+ActiveRecord::Schema.define(:version => 20130307030012) do
 
   create_table "categories", :force => true do |t|
     t.string   "category"
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(:version => 20130306000350) do
   create_table "players", :force => true do |t|
     t.integer  "user_id"
     t.integer  "game_id"
-    t.integer  "points"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "points",     :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "poem_words", :force => true do |t|
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20130306000350) do
 
   create_table "rounds", :force => true do |t|
     t.integer  "game_id"
-    t.integer  "round_number"
+    t.integer  "round_number",  :default => 0
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.boolean  "all_submitted", :default => false

@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  attr_accessible :name, :user_id, :round_limit, :players_attributes
+  attr_accessible :name, :user_id, :round_limit, :players_attributes, :user_ids
 
   has_many :rounds
   has_many :players, inverse_of: :game
@@ -10,29 +10,12 @@ class Game < ActiveRecord::Base
   # maybe crazy
   belongs_to :user
 
-  def self.start_game(creator, users, name, round_limit)
-    game = Game.new(
-      name: name,
-      user_id: creator.id,
-      round_limit: round_limit
-    )
-
-    round = game.rounds.build(
-      round_number: 1,
-    )
-
-    users.each do |user|
-      game.players.build(
-        user_id: user.id,
-        points: 0
-      )
-    end
-
-    game.save
-    players = game.players
+  def start_game
+    round = self.rounds.build
+    self.save
     Poem.create_player_poems(players, round.id)
     RoundPrompt.generate_random(round.id)
-    game
+    self
   end
 
   def player_by_user_id(user_id)
