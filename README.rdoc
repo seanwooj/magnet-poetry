@@ -1,1 +1,13 @@
-Magnetic Poetry App
+#Magnets
+
+In the spirit of Apples to Apples and Cards Against Humanity, I built a web app that pits users against each other in the field of humor and bad taste. Each round, users are given a prompt, and a set of words which they arrange into poems based on the prompt. Players then vote on their favorite to determine who is the (democratically elected) King of Poems.
+
+Technology Used:
+
+Rails
+Devise
+Foundation Framework
+Javascript
+jQuery
+Underscore
+SCSS
